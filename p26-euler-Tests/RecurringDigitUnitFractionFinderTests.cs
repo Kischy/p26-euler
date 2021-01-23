@@ -115,7 +115,7 @@ namespace p26_euler_Tests
         {
             rdf.Denominator = 879;
 
-            Assert.AreEqual(0, rdf.GetRecuringCycleCount());
+            Assert.AreEqual(146, rdf.GetRecuringCycleCount());
 
         }
     }

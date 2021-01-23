@@ -10,6 +10,25 @@ namespace p26_euler
 
         private UnitFractionDecimalRepresentation ufdr;
 
+        private bool IsValidIndex(int index)
+        {
+            return index != -1;
+        }
+
+        private bool IndexIsNotTheSameAsCurrent(int index)
+        {
+            return index != ufdr.Remainders.Count - 1;
+        }
+
+        private bool MaxCountReached()
+        {
+            return ufdr.Remainders.Count == ufdr.Denominator;
+        }
+
+        private bool MightBeRecuringCycleNumber()
+        {
+            return ufdr.LastRemainder() != 0;
+        }
 
 
         public int Denominator { 
@@ -29,7 +48,7 @@ namespace p26_euler
 
             ufdr = new UnitFractionDecimalRepresentation(denom);
             Denominator = denom;
-        }
+        }   
 
 
         
@@ -37,14 +56,26 @@ namespace p26_euler
 
         public int GetRecuringCycleCount()
         {
-            int currRemainder = -1;
 
-            while(currRemainder != 0)
+            while(MightBeRecuringCycleNumber())
             {
+                ufdr.GetNextDigit();
+                int currRemainder = ufdr.LastRemainder();
+                int index = ufdr.Remainders.IndexOf(currRemainder);
+
+                if (IsValidIndex(index) && IndexIsNotTheSameAsCurrent(index))
+                {
+                    return (ufdr.Remainders.Count - 1) - index;
+                }
+
+                if (MaxCountReached())
+                {
+                    break;
+                }
 
             }
 
-            return 1;
+            return 0;
         }
 
 
