@@ -8,6 +8,8 @@ namespace p26_euler
     {
 
         private int denominator;
+        private int currentRest;
+        private int numerator = 1;
 
 
         public int Denominator 
@@ -25,6 +27,7 @@ namespace p26_euler
                 }
 
                 denominator = value;
+                currentRest = value;
             }
 
              
@@ -37,6 +40,8 @@ namespace p26_euler
 
         public int GetNextDigit()
         {
+
+
             return 5;
         }
 

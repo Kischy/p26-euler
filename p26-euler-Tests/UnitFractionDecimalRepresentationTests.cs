@@ -9,6 +9,14 @@ namespace p26_euler_Tests
 
         UnitFractionDecimalRepresentation ufdr = new UnitFractionDecimalRepresentation(2);
 
+
+        [TestMethod]
+        public void TestToLowNumberThrowsArgumentException()
+        {
+            Assert.ThrowsException<System.ArgumentException>(() => new UnitFractionDecimalRepresentation(1));
+
+        }
+
         [TestMethod]
         public void Test1_div_2()
         {
