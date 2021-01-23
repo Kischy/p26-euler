@@ -27,9 +27,16 @@ namespace p26_euler
                 }
 
                 denominator = value;
+                Reset();
             }
 
              
+        }
+
+        private void Reset()
+        {
+            numerator = 10;
+            nextDigit = 0;
         }
 
         private void AdjustNumerator()
