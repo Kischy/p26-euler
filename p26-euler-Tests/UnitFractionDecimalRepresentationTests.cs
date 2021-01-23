@@ -1,5 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using p26_euler;
+using System.Collections.Generic;
 
 namespace p26_euler_Tests
 {
@@ -25,6 +26,11 @@ namespace p26_euler_Tests
             Assert.AreEqual(5, ufdr.GetNextDigit());
             Assert.AreEqual(-1, ufdr.GetNextDigit());
             Assert.AreEqual(-1, ufdr.GetNextDigit());
+
+
+            List<int> ex_remain = new List<int>(){1,0};
+
+            CollectionAssert.AreEqual(ex_remain, ufdr.Remainders);
         }
 
         [TestMethod]
@@ -35,6 +41,10 @@ namespace p26_euler_Tests
             Assert.AreEqual(3, ufdr.GetNextDigit());
             Assert.AreEqual(3, ufdr.GetNextDigit());
             Assert.AreEqual(3, ufdr.GetNextDigit());
+
+            List<int> ex_remain = new List<int>() { 1, 1, 1, 1 };
+
+            CollectionAssert.AreEqual(ex_remain, ufdr.Remainders);
         }
 
         [TestMethod]
@@ -45,6 +55,11 @@ namespace p26_euler_Tests
             Assert.AreEqual(2, ufdr.GetNextDigit());
             Assert.AreEqual(5, ufdr.GetNextDigit());
             Assert.AreEqual(-1, ufdr.GetNextDigit());
+
+            List<int> ex_remain = new List<int>() { 1, 2, 0 };
+
+            CollectionAssert.AreEqual(ex_remain, ufdr.Remainders);
+
         }
 
         [TestMethod]
@@ -87,12 +102,11 @@ namespace p26_euler_Tests
             Assert.AreEqual(5, ufdr.GetNextDigit());
             Assert.AreEqual(7, ufdr.GetNextDigit());
 
-            Assert.AreEqual(1, ufdr.GetNextDigit());
-            Assert.AreEqual(4, ufdr.GetNextDigit());
-            Assert.AreEqual(2, ufdr.GetNextDigit());
-            Assert.AreEqual(8, ufdr.GetNextDigit());
-            Assert.AreEqual(5, ufdr.GetNextDigit());
-            Assert.AreEqual(7, ufdr.GetNextDigit());
+
+
+            List<int> ex_remain = new List<int>() { 1, 3, 2, 6, 4, 5, 1, 3, 2, 6, 4, 5, 1 };
+
+            CollectionAssert.AreEqual(ex_remain, ufdr.Remainders);
         }
 
         [TestMethod]
