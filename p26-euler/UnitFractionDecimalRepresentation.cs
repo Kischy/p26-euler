@@ -9,6 +9,7 @@ namespace p26_euler
 
         private int denominator;
 
+
         public int Denominator 
         {
             get
@@ -36,7 +37,7 @@ namespace p26_euler
 
         public int GetNextDigit()
         {
-            return 1;
+            return 5;
         }
 
 

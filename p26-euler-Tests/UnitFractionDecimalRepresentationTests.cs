@@ -10,7 +10,7 @@ namespace p26_euler_Tests
         UnitFractionDecimalRepresentation ufdr = new UnitFractionDecimalRepresentation(2);
 
         [TestMethod]
-        public void TestOneHalf()
+        public void Test1_div_2()
         {
             ufdr.Denominator = 2;
 
@@ -19,6 +19,7 @@ namespace p26_euler_Tests
             Assert.AreEqual(-1, ufdr.GetNextDigit());
         }
 
+        [TestMethod]
         public void Test1_div_3()
         {
             ufdr.Denominator = 3;
@@ -28,6 +29,7 @@ namespace p26_euler_Tests
             Assert.AreEqual(3, ufdr.GetNextDigit());
         }
 
+        [TestMethod]
         public void Test1_div_4()
         {
             ufdr.Denominator = 4;
@@ -37,6 +39,7 @@ namespace p26_euler_Tests
             Assert.AreEqual(-1, ufdr.GetNextDigit());
         }
 
+        [TestMethod]
         public void Test1_div_5()
         {
             ufdr.Denominator = 5;
@@ -46,6 +49,7 @@ namespace p26_euler_Tests
             Assert.AreEqual(-1, ufdr.GetNextDigit());
         }
 
+        [TestMethod]
         public void Test1_div_6()
         {
             ufdr.Denominator = 6;
@@ -56,6 +60,7 @@ namespace p26_euler_Tests
             Assert.AreEqual(6, ufdr.GetNextDigit());
         }
 
+        [TestMethod]
         public void Test1_div_7()
         {
             ufdr.Denominator = 7;
@@ -82,6 +87,7 @@ namespace p26_euler_Tests
             Assert.AreEqual(7, ufdr.GetNextDigit());
         }
 
+        [TestMethod]
         public void Test1_div_8()
         {
             ufdr.Denominator = 8;
@@ -92,6 +98,7 @@ namespace p26_euler_Tests
             Assert.AreEqual(-1, ufdr.GetNextDigit());
         }
 
+        [TestMethod]
         public void Test1_div_9()
         {
             ufdr.Denominator = 9;
@@ -102,6 +109,7 @@ namespace p26_euler_Tests
             Assert.AreEqual(1, ufdr.GetNextDigit());
         }
 
+        [TestMethod]
         public void Test1_div_10()
         {
             ufdr.Denominator = 10;
@@ -109,6 +117,33 @@ namespace p26_euler_Tests
             Assert.AreEqual(1, ufdr.GetNextDigit());
             Assert.AreEqual(-1, ufdr.GetNextDigit());
             Assert.AreEqual(-1, ufdr.GetNextDigit());
+        }
+
+
+        [TestMethod]
+        public void Test1_div_11()
+        {
+            ufdr.Denominator = 11;
+
+            Assert.AreEqual(0, ufdr.GetNextDigit());
+            Assert.AreEqual(9, ufdr.GetNextDigit());
+            Assert.AreEqual(0, ufdr.GetNextDigit());
+            Assert.AreEqual(9, ufdr.GetNextDigit());
+
+        }
+
+        [TestMethod]
+        public void Test1_div_111()
+        {
+            ufdr.Denominator = 11;
+
+            Assert.AreEqual(0, ufdr.GetNextDigit());
+            Assert.AreEqual(0, ufdr.GetNextDigit());
+            Assert.AreEqual(9, ufdr.GetNextDigit());
+            Assert.AreEqual(0, ufdr.GetNextDigit());
+            Assert.AreEqual(0, ufdr.GetNextDigit());
+            Assert.AreEqual(9, ufdr.GetNextDigit());
+
         }
     }
 }
