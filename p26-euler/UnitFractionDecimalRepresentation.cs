@@ -8,8 +8,8 @@ namespace p26_euler
     {
 
         private int denominator;
-        private int currentRest;
-        private int numerator = 1;
+        private int numerator = 10;
+        private int nextDigit = 0;
 
 
         public int Denominator 
@@ -27,10 +27,20 @@ namespace p26_euler
                 }
 
                 denominator = value;
-                currentRest = value;
             }
 
              
+        }
+
+        private void AdjustNumerator()
+        {
+            numerator -= nextDigit * denominator;
+            numerator *= 10;
+        }
+
+        private bool DecimalRepresentationHasEnded()
+        {
+            return numerator == 0;
         }
 
         public UnitFractionDecimalRepresentation(int denom)
@@ -40,9 +50,16 @@ namespace p26_euler
 
         public int GetNextDigit()
         {
+            if(DecimalRepresentationHasEnded())
+            {
+                return -1;
+            }
 
+            nextDigit = numerator / denominator;
 
-            return 5;
+            AdjustNumerator();
+
+            return nextDigit;
         }
 
 

@@ -143,7 +143,7 @@ namespace p26_euler_Tests
         [TestMethod]
         public void Test1_div_111()
         {
-            ufdr.Denominator = 11;
+            ufdr.Denominator = 111;
 
             Assert.AreEqual(0, ufdr.GetNextDigit());
             Assert.AreEqual(0, ufdr.GetNextDigit());
@@ -151,7 +151,28 @@ namespace p26_euler_Tests
             Assert.AreEqual(0, ufdr.GetNextDigit());
             Assert.AreEqual(0, ufdr.GetNextDigit());
             Assert.AreEqual(9, ufdr.GetNextDigit());
+        }
+
+        [TestMethod]
+        public void Test1_div_879()
+        {
+            ufdr.Denominator = 879;
+
+            Assert.AreEqual(0, ufdr.GetNextDigit());
+            Assert.AreEqual(0, ufdr.GetNextDigit());
+            Assert.AreEqual(1, ufdr.GetNextDigit());
+            Assert.AreEqual(1, ufdr.GetNextDigit());
+            Assert.AreEqual(3, ufdr.GetNextDigit());
+            Assert.AreEqual(7, ufdr.GetNextDigit());
+            Assert.AreEqual(6, ufdr.GetNextDigit());
+            Assert.AreEqual(5, ufdr.GetNextDigit());
+            Assert.AreEqual(6, ufdr.GetNextDigit());
+            Assert.AreEqual(4, ufdr.GetNextDigit());
+            Assert.AreEqual(2, ufdr.GetNextDigit());
+            Assert.AreEqual(7, ufdr.GetNextDigit());
+            Assert.AreEqual(7, ufdr.GetNextDigit());
 
         }
+
     }
 }
