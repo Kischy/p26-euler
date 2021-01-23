@@ -1,122 +1,51 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using p26_euler;
+using System.Collections.Generic;
+
 
 namespace p26_euler_Tests
 {
     [TestClass]
     public class RecurringDigitFinderTests
-    {        
-        RecurringDigitFinder rdf = new RecurringDigitFinder(2);
-
-
+    {
         [TestMethod]
-        public void Test1_div_2()
+        public void TestNonRecuring()
         {
-            rdf.Denominator = 2;
+            List<int> numbers = new List<int>() { 5, -1 };
 
-            Assert.AreEqual(0, rdf.GetRecuringCycleCount());
-
+            Assert.AreEqual(0, RecurringDigitFinder.GetRecuringCycleCount(numbers));
         }
 
         [TestMethod]
-        public void Test1_div_3()
+        public void TestOneRecuringEasy()
         {
-            rdf.Denominator = 3;
+            List<int> numbers = new List<int>() { 1,1,1 };
 
-            Assert.AreEqual(1, rdf.GetRecuringCycleCount());
-
+            Assert.AreEqual(1, RecurringDigitFinder.GetRecuringCycleCount(numbers));
         }
 
         [TestMethod]
-        public void Test1_div_4()
+        public void TestOneRecuring()
         {
-            rdf.Denominator = 4;
+            List<int> numbers = new List<int>() { 0, 1, 6, 6, 6, 6 };
 
-            Assert.AreEqual(0, rdf.GetRecuringCycleCount());
-
+            Assert.AreEqual(1, RecurringDigitFinder.GetRecuringCycleCount(numbers));
         }
 
         [TestMethod]
-        public void Test1_div_5()
+        public void TestTwoRecuring()
         {
-            rdf.Denominator = 5;
+            List<int> numbers = new List<int>() { 0, 9, 0, 9 };
 
-            Assert.AreEqual(0, rdf.GetRecuringCycleCount());
-
+            Assert.AreEqual(2, RecurringDigitFinder.GetRecuringCycleCount(numbers));
         }
 
         [TestMethod]
-        public void Test1_div_6()
+        public void TestSixRecuring()
         {
-            rdf.Denominator = 6;
+            List<int> numbers = new List<int>() { 1, 4, 2, 8, 5, 7, 1, 4, 2, 8, 5, 7 };
 
-            Assert.AreEqual(1, rdf.GetRecuringCycleCount());
-
-        }
-
-        [TestMethod]
-        public void Test1_div_7()
-        {
-            rdf.Denominator = 7;
-
-            Assert.AreEqual(6, rdf.GetRecuringCycleCount());
-
-        }
-
-        [TestMethod]
-        public void Test1_div_8()
-        {
-            rdf.Denominator = 8;
-
-            Assert.AreEqual(0, rdf.GetRecuringCycleCount());
-
-        }
-
-        [TestMethod]
-        public void Test1_div_9()
-        {
-            rdf.Denominator = 9;
-
-            Assert.AreEqual(1, rdf.GetRecuringCycleCount());
-
-        }
-
-        [TestMethod]
-        public void Test1_div_10()
-        {
-            rdf.Denominator = 10;
-
-            Assert.AreEqual(0, rdf.GetRecuringCycleCount());
-
-        }
-
-
-        [TestMethod]
-        public void Test1_div_11()
-        {
-            rdf.Denominator = 11;
-
-            Assert.AreEqual(2, rdf.GetRecuringCycleCount());
-
-
-        }
-
-        [TestMethod]
-        public void Test1_div_111()
-        {
-            rdf.Denominator = 111;
-
-            Assert.AreEqual(3, rdf.GetRecuringCycleCount());
-
-        }
-
-        [TestMethod]
-        public void Test1_div_879()
-        {
-            rdf.Denominator = 879;
-
-            Assert.AreEqual(0, rdf.GetRecuringCycleCount());
-
+            Assert.AreEqual(6, RecurringDigitFinder.GetRecuringCycleCount(numbers));
         }
     }
 }
