@@ -9,17 +9,24 @@ namespace p26_euler
             Console.WriteLine("Calculation started");
 
 
-            RecurringDigitUnitFractionFinder rdf = new RecurringDigitUnitFractionFinder(2);
+            RecurringDigitUnitFractionFinder longest_rdf = new RecurringDigitUnitFractionFinder(2);
 
-            for(int i = 2; i < 1000; ++i)
+            for(int i = 3; i < 1000; ++i)
             {
+                RecurringDigitUnitFractionFinder rdf = new RecurringDigitUnitFractionFinder(i);
 
+                if (rdf.GetRecuringCycleCount() > longest_rdf.GetRecuringCycleCount())
+                {
+                    longest_rdf = rdf;
+                }
             }
 
 
-            int answer_p26 = 0;
+            int answer_p26 = longest_rdf.Denominator;
 
-            Console.WriteLine("The answer to problem 26 of project Euler is " + answer_p26 + ".");
+
+            Console.Write("The answer to problem 26 of project Euler is " + answer_p26 + ".");
+            Console.WriteLine("The length of the recurring cycle is " + longest_rdf.GetRecuringCycleCount() + ".");
         }
     }
 }
