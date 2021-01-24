@@ -10,6 +10,9 @@ namespace p26_euler
 
         private UnitFractionDecimalRepresentation ufdr;
 
+        private bool RecuringCylcleCountHasBeenCalculated = false;
+        private int recuringCycleCount;
+
         private bool IsValidIndex(int index)
         {
             return index != -1;
@@ -30,34 +33,9 @@ namespace p26_euler
             return ufdr.LastRemainder() != 0;
         }
 
-
-        public int Denominator { 
-            get
-            {
-                return ufdr.Denominator;
-            }
-
-            set
-            {
-                ufdr.Denominator = value;
-            }
-        }
-
-        public RecurringDigitUnitFractionFinder(int denom)
+        private void CalcRecuringCycleNumber()
         {
-
-            ufdr = new UnitFractionDecimalRepresentation(denom);
-            Denominator = denom;
-        }   
-
-
-        
-
-
-        public int GetRecuringCycleCount()
-        {
-
-            while(MightBeRecuringCycleNumber())
+            while (MightBeRecuringCycleNumber())
             {
                 ufdr.GetNextDigit();
                 int currRemainder = ufdr.LastRemainder();
@@ -65,7 +43,8 @@ namespace p26_euler
 
                 if (IsValidIndex(index) && IndexIsNotTheSameAsCurrent(index))
                 {
-                    return (ufdr.Remainders.Count - 1) - index;
+                    recuringCycleCount = (ufdr.Remainders.Count - 1) - index;
+                    return;
                 }
 
                 if (MaxCountReached())
@@ -75,9 +54,50 @@ namespace p26_euler
 
             }
 
-            return 0;
+            recuringCycleCount = 0;
         }
 
 
+        public int Denominator
+        {
+            get
+            {
+                return ufdr.Denominator;
+            }
+
+            set
+            {
+                ufdr.Denominator = value;
+                RecuringCylcleCountHasBeenCalculated = false;
+            }
+        }
+
+        public RecurringDigitUnitFractionFinder(int denom)
+        {
+
+            ufdr = new UnitFractionDecimalRepresentation(denom);
+            Denominator = denom;
+        }
+
+
+
+
+
+        public int GetRecuringCycleCount()
+        {
+
+            if (RecuringCylcleCountHasBeenCalculated)
+            {
+                return recuringCycleCount;
+            }
+            else
+            {
+                CalcRecuringCycleNumber();
+                RecuringCylcleCountHasBeenCalculated = true;
+                return recuringCycleCount;
+            }
+
+
+        }
     }
 }

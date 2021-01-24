@@ -18,14 +18,7 @@ namespace p26_euler_Tests
 
         }
 
-        [TestMethod]
-        public void Test1_div_3()
-        {
-            rdf.Denominator = 3;
 
-            Assert.AreEqual(1, rdf.GetRecuringCycleCount());
-
-        }
 
         [TestMethod]
         public void Test1_div_4()
@@ -117,6 +110,18 @@ namespace p26_euler_Tests
 
             Assert.AreEqual(146, rdf.GetRecuringCycleCount());
 
+        }
+
+        [TestMethod]
+        public void TestHasBeenCalculatedIsReset()
+        {
+            rdf.Denominator = 3;
+
+            Assert.AreEqual(1, rdf.GetRecuringCycleCount());
+            Assert.AreEqual(1, rdf.GetRecuringCycleCount());
+
+            rdf.Denominator = 2;
+            Assert.AreEqual(0, rdf.GetRecuringCycleCount());
         }
     }
 }
